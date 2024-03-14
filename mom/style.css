@@ -1,0 +1,30 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 40px;
+
+    max-width: 1600px; /* Set maximum width for better readability on larger screens */
+    margin: 40px auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding to the container */
+    background-color: #f0f0f0; /* Set background color */
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+}
+
+label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%; /* Ensure form elements take full width */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust the width as needed */
+    }
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 80%;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .table input {
+        width: 100%;
+
+        box-sizing: border-box;
+      }
+
+      .table select {
+        width: 100%;
+
+        box-sizing: border-box;
+      }
+
+      .table th,
+      .table td {
+        text-align: center;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .form-control {
+        padding: 0;
+      }
+      .table > :not(caption) > * > * {
+        padding: 2px;
+      }
+      input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+ </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="text-align: center"><b>RET Scripting Tool </b></h2>
+      <h5 style="text-align: center">(RET MODEL - CCI123)</h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background: #222222;color: #ffa600;font-size: 12px;">
+            <th>Site ID</th>
+            <th>AUG</th>
+            <th>USID</th>
+            <th>POS</th>
+            <th>ANU</th>
+            <th>RADIO</th>
+            <th>UNIQUE ID</th>
+            <th style="width: 6%;">TECH</th>
+            <th style="width: 6%;">TILT</th>
+            <th style="width: 30%;">USER LABEL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                id="site-id"
+                placeholder="Enter site id"
+              />
+            </td>
+            <td>
+              <select id="aug">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </td>
+            <td><input type="number" class="form-control" id="usid" /></td>
+            <td><input type="number" class="form-control" id="pos" /></td>
+            <td><input type="number" class="form-control" id="anu" /></td>
+            <td><input type="text" class="form-control" id="radio" /></td>
+            <td><input type="text" class="form-control" id="unique-id" /></td>
+            <td>
+              <select id="base-1">
+                <option value="7L">7L</option>
+                <option value="KJ">KJ</option>
+                <option value="8L">8L</option>
+                <option value="PM">PM</option>
+                <option value="PL">PL</option>
+                <option value="9J">9J</option>
+              </select>
+            </td>
+            <td><input type="text" class="form-control" id="tilt-1" /></td>
+            <td>
+              <input
+                type="text"
+                class="form-control"
+                id="user-lebel-1"
+                placeholder="LB (PORT 1-2)"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="7" rowspan="5"></td>
+
+            <td><input type="text" class="form-control" id="base-2" /></td>
+            <td><input type="text" class="form-control" id="tilt-2" /></td>
+            <td>
+              <input type="text" class="form-control" id="user-lebel-2" placeholder="LB (PORT 3-4)"/>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" id="base-3" /></td>
+            <td><input type="text" class="form-control" id="tilt-3" /></td>
+            <td>
+              <input type="text" class="form-control" id="user-lebel-3" placeholder="HB (PORT 5-6)"/>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" id="base-4" /></td>
+            <td><input type="text" class="form-control" id="tilt-4" /></td>
+            <td>
+              <input type="text" class="form-control" id="user-lebel-4" placeholder="HB (PORT 7-8)"/>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" id="base-5" /></td>
+            <td><input type="text" class="form-control" id="tilt-5" /></td>
+            <td>
+              <input type="text" class="form-control" id="user-lebel-5" placeholder="HB (PORT 9-10)"/>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" id="base-6" /></td>
+            <td><input type="text" class="form-control" id="tilt-6" /></td>
+            <td>
+              <input type="text" class="form-control" id="user-lebel-6" placeholder="HB (PORT 11-12)"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" id="submitBtn">
+        Generate Script <i class="fa fa-code"></i>
+      </button>
+      <a href="index.html" style="text-decoration: none;color: white;"> <button type="button" class="btn btn-danger">Home </button> </a>  
+    
+    </div>
+    <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
+  </body>
+</html>
+<script>
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    swal("Good job!", "Your Script has been generated!", "success");
+    const siteId = document.getElementById("site-id").value;
+    const aug = document.getElementById("aug").value;
+
+    const usid = document.getElementById("usid").value;
+    const pos = document.getElementById("pos").value;
+
+    const anu = document.getElementById("anu").value;
+    const radio = document.getElementById("radio").value;
+    const uniqueId = document.getElementById("unique-id").value;
+
+    const base1 = document.getElementById("base-1").value;
+    const base2 = document.getElementById("base-2").value;
+    const base3 = document.getElementById("base-3").value;
+    const base4 = document.getElementById("base-4").value;
+    const base5 = document.getElementById("base-5").value;
+    const base6 = document.getElementById("base-6").value;
+
+    const tilt1 = document.getElementById("tilt-1").value;
+    const tilt2 = document.getElementById("tilt-2").value;
+    const tilt3 = document.getElementById("tilt-3").value;
+    const tilt4 = document.getElementById("tilt-4").value;
+    const tilt5 = document.getElementById("tilt-5").value;
+    const tilt6 = document.getElementById("tilt-6").value;
+
+    const userLabel1 = document.getElementById("user-lebel-1").value;
+    const userLabel2 = document.getElementById("user-lebel-2").value;
+    const userLabel3 = document.getElementById("user-lebel-3").value;
+    const userLabel4 = document.getElementById("user-lebel-4").value;
+    const userLabel5 = document.getElementById("user-lebel-5").value;
+    const userLabel6 = document.getElementById("user-lebel-6").value;
+
+    let sec;
+let word;
+let data = ["A", "B", "C", "D", "E", "F"];
+let dataSec = ["ALPHA", "BETA", "GAMMA", "DELTA", "EPSISON", "FOXTROT"];
+function  convert(aug) {
+  if (aug) {
+    word = data[Number(aug) - 1];
+    sec = dataSec[Number(aug) - 1];
+    }
+    
+  }
+convert(aug);
+    console.log(word,"w",sec)
+    const generatedString = generateString(
+      siteId,
+      aug,
+      word,
+      sec,
+      usid,
+      pos,
+      anu,
+      radio,
+      uniqueId,
+      base1,
+      base2,
+      base3,
+      base4,
+      base5,
+      base6,
+      tilt1,
+      tilt2,
+      tilt3,
+      tilt4,
+      tilt5,
+      tilt6,
+      userLabel1,
+      userLabel2,
+      userLabel3,
+      userLabel4,
+      userLabel5,
+      userLabel6
+    );
+
+    // Create a Blob containing the text
+    const blob = new Blob([generatedString], { type: "text/plain" });
+
+    // Create a link element
+    const link = document.createElement("a");
+
+    // Set the link's href to the Blob URL
+    link.href = window.URL.createObjectURL(blob);
+
+    // Set the download attribute to specify the filename
+    link.download = `${siteId}.txt`;
+
+    // Append the link to the document
+    document.body.appendChild(link);
+
+    // Trigger a click on the link to start the download
+    link.click();
+
+    // Remove the link from the document
+    document.body.removeChild(link);
+  });
+
+  function generateString(
+    siteId,
+    aug,
+    word,
+    sec,
+    usid,
+    pos,
+    anu,
+    radio,
+    uniqueId,
+    base1,
+    base2,
+    base3,
+    base4,
+    base5,
+    base6,
+    tilt1,
+    tilt2,
+    tilt3,
+    tilt4,
+    tilt5,
+    tilt6,
+    userLabel1,
+    userLabel2,
+    userLabel3,
+    userLabel4,
+    userLabel5,
+    userLabel6
+  ) {
+    return `
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu}
+adminstate=UNLOCK
+AntennaNearUnitId=${anu}
+ref=FieldReplacableUnit,${radio},RfPort-R
+uniqueid=${uniqueId}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=1
+userlable="UNLOCK"
+iuantbasestation=${usid}${word}--${pos}${base1}
+iuantbasestation=${base1}
+tiltId=${sec}
+userLabel=${usid}${word}--${pos}${base1}__${userLabel1}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=2
+userlable="UNLOCK"
+iuantbasestation=${base2}
+iuantbasestation=${tilt2}
+tiltId=${userLabel2}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=3
+userlable="UNLOCK"
+iuantbasestation=${base3}
+iuantbasestation=${tilt3}
+tiltId=${userLabel3}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=4
+userlable="UNLOCK"
+iuantbasestation=${base4}
+iuantbasestation=${tilt4}
+tiltId=${userLabel4}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=5
+userlable="UNLOCK"
+iuantbasestation=${base5}
+iuantbasestation=${tilt5}
+tiltId=${userLabel5}
+
+CREATE
+SubNetwork=AntennaGroup-${aug},ONRM_ROOT_MO,SubNetwork=${siteId},MeContext=${siteId},ManagedElement=1,AntennaNearUnit=${anu},Retsubunit=6
+userlable="UNLOCK"
+iuantbasestation=${base6}
+iuantbasestation=${tilt6}
+tiltId=${userLabel6}
+`;
+  }
+</script>

@@ -1,0 +1,1 @@
+cmedit set SubNetwork=ONRM_ROOT_MO,MeContext=PRNN000661,ManagedElement=PRNN000661,Equipment=1,FieldReplaceableUnit=SAU-1,AlarmPort=10 userlabel="RBS LTE RRU AT DC SYS SPD", priority="CRITICAL"

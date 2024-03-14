@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: system-ui;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Change height to min-height */
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Change width to max-width */
+            width: 90%; /* Add width as a percentage */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #1c1c1c;
+            color: #f07b07;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            width: 100%; /* Make text input full width */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Make submit button full width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .download-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            /* Add styles for smaller screens */
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+    <title>External Alarm Scripting Tool (EAST)</title>
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Handle form submission
+                var alarmStrings = [];
+                var siteId = document.getElementById("SiteId").value;
+
+                for (var i = 1; i <= 32; i++) {
+                    var port = document.getElementById("port" + i).value;
+                    var ports = document.getElementById("ports" + i).value;
+                    var radio = document.getElementById("radio" + i).checked;
+
+                    if (radio) {
+                        alarmStrings.push("cmedit set SubNetwork=ONRM_ROOT_MO,SubNetwork=" + siteId +
+                            ",MeContext=" + siteId + ",ManagedElement=1,SAUPort=" + i +
+                            " userlabel=\"" + port + "\",priority=\"" + ports + "\"");
+                    }
+                }
+
+                var filename = siteId + '_' + new Date().toISOString().replace(/[^\d]/g, '').slice(0, 14) + '.txt';
+
+                var blob = new Blob([alarmStrings.join('\n')], {
+                    type: 'text/plain'
+                });
+                var link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+                link.click();
+            });
+        });
+    </script>
+
+    <form>
+        <h2 style="color: #f57b0a;">External Alarm Scripting Tool
+            (EAST)</h2>
+        <label for="SiteId"><b>Site ID:</b></label>
+        <input type="text" name="SiteId" id="SiteId" required placeholder="Enter Site ID">
+
+        <table>
+            <tr>
+                <th>SAU Port</th>
+                <th>Alarm Slogan</th>
+                <th>Priority</th>
+                <th>Select Port</th>
+            </tr>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var form = document.querySelector('form');
+
+                    for (var i = 1; i <= 32; i++) {
+                        var row = document.createElement('tr');
+
+                        var cell1 = document.createElement('td');
+                        cell1.textContent = i;
+                        row.appendChild(cell1);
+
+                        var cell2 = document.createElement('td');
+                        var select1 = document.createElement('select');
+                        select1.name = 'port' + i;
+                        select1.id = 'port' + i;
+                        var option1 = createOption('RBS DOOR OPEN', 'RBS DOOR OPEN');
+                        var option2 = createOption('RBS LOW TEMP', 'RBS LOW TEMP');
+                        var option3 = createOption('RBS HIGH TEMP', 'RBS HIGH TEMP');
+                        var option4 = createOption('RBS TECH AT SITE', 'RBS TECH AT SITE');
+                        select1.appendChild(option1);
+                        select1.appendChild(option2);
+                        select1.appendChild(option3);
+                        select1.appendChild(option4);
+                        cell2.appendChild(select1);
+                        row.appendChild(cell2);
+
+                        var cell3 = document.createElement('td');
+                        var select2 = document.createElement('select');
+                        select2.name = 'ports' + i;
+                        select2.id = 'ports' + i;
+                        var optionMajor = createOption('MAJOR', 'MAJOR', 'orange');
+                        var optionMinor = createOption('MINOR', 'MINOR', 'green');
+                        var optionCritical = createOption('CRITICAL', 'CRITICAL', 'red');
+                        select2.appendChild(optionMajor);
+                        select2.appendChild(optionMinor);
+                        select2.appendChild(optionCritical);
+                        cell3.appendChild(select2);
+                        row.appendChild(cell3);
+
+                        var cell4 = document.createElement('td');
+                        var checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.name = 'radio' + i;
+                        checkbox.id = 'radio' + i;
+                        cell4.appendChild(checkbox);
+                        row.appendChild(cell4);
+
+                        form.querySelector('table').appendChild(row);
+                    }
+                });
+
+                function createOption(value, text, color) {
+                    var option = document.createElement('option');
+                    option.value = value;
+                    option.text = text;
+                    if (color) {
+                        option.style.color = color;
+                    }
+                    return option;
+                }
+            </script>
+
+        </table>
+
+        <input type="submit" value="Generate Script">
+
+        <!-- Move the link to the bottom -->
+        <div class="download-link">
+            <!-- This section remains unchanged -->
+        </div>
+    </form>
+
+</body>
+
+</html>

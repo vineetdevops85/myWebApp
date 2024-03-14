@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Ret Model</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29kaW5nfGVufDB8fDB8fHww');
+    }
+
+    .container {
+      width: 100%;
+      max-width: 315px; /* Set a maximum width for larger screens */
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    /* Media query for screens smaller than 600px */
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+    }
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <div style="width: 150px;margin: auto;">
+        <img src="https://awsmp-logos.s3.amazonaws.com/170d659d-29a2-461a-bd3a-fb248c7468c2/530bf84ec1ac46b09ccc44efa3d64df5.png" width="100%" alt="icon">
+    </div>
+   <div style="margin: 20px;">
+    <p style="text-align: center;color: #888888;"><b>Select a Ret Model</b></p>
+   </div>
+
+    <select id="retModel" style="text-align: center;" onchange="handleSelection()">
+      <option value="" selected disabled >Select a Model</option>
+      <option value="cci1">CCI-1</option>
+      <option value="cci2">CCI-2</option>
+      <option value="cci3">CCI-3</option>
+    </select>
+  </div>
+
+  <script>
+    function handleSelection() {
+      let selectedModel = document.getElementById("retModel").value;
+      if (selectedModel) {
+        window.location.href = `${selectedModel}.html`;
+      }
+    }
+  </script>
+</body>
+</html>

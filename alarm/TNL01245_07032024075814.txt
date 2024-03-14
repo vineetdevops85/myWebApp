@@ -1,0 +1,1 @@
+cmedit set SubNetwork=ONRM_ROOT_MO,MeContext=TNL01245,ManagedElement=TNL01245,Equipment=1,FieldReplaceableUnit=SAU-1,AlarmPort=1 userlabel="RBS INTRUSION", priority="MAJOR"

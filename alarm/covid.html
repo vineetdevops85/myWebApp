@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate String</title>
+    <script>
+        function generateString() {
+            var dropdownValue = document.getElementById("dropdown").value;
+            var firstNameValue = document.getElementById("firstName").value;
+            var lastNameValue = document.getElementById("lastName").value;
+            var valueTextboxValue = document.getElementById("valueTextbox").value;
+
+            var generatedString = "abc " + dropdownValue + " " + firstNameValue + " " + lastNameValue + " " + valueTextboxValue;
+
+            document.getElementById("result").innerText = generatedString;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Generate String</h1>
+
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown" onchange="generateString()">
+        <option value="Option1">Option 1</option>
+        <option value="Option2">Option 2</option>
+        <!-- Add more options as needed -->
+    </select>
+
+    <br>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" onchange="generateString()">
+
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" onchange="generateString()">
+
+    <br>
+
+    <label for="valueTextbox">Value:</label>
+    <input type="text" id="valueTextbox" onchange="generateString()">
+
+    <br>
+
+    <button onclick="generateString()">Generate Command</button>
+
+    <br>
+
+    <p id="result"></p>
+
+</body>
+</html>

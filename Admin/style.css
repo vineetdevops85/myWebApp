@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.news-ticker {
+    height: 10px; /* Set the desired height */
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.news-content {
+    animation: scrollNews 25s linear infinite; /* Adjust the animation duration as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes scrollNews {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.update-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.text-one {
+    color: #007bff; /* Blue color for primary */
+}
+
+.text-two {
+    color: #dc3545; /* Red color for danger */
+}
+
+.text-three {
+    color: #ffc107; /* Yellow color for warning */
+}
+
+.text-four {
+    color: #327301; /* Yellow color for warning */
+}
+
+.text-five {
+    color: #fd0a02; /* Yellow color for warning */
+}
+
+.text-six {
+    color: #fd029d; /* Yellow color for warning */
+}
+
+.text-seven {
+    color: #fa5f06; /* Yellow color for warning */
+}
+.new-badge {
+    background-color: #28a745; /* Green color for the "New" badge */
+    color: #fff;
+    padding: 2px 5px;
+    margin-left: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+/* Add more styling as needed */

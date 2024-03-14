@@ -1,0 +1,112 @@
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,NodeSupport=1,SectorEquipmentFunction=3"
+administrativeState : LOCKED
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,NodeSupport=1,SectorEquipmentFunction=3"
+rfBranchRef : []
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,NodeSupport=1,CpriLinkIqData=1"
+riLinkRef : []
+
+DELETE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,RiLink=10"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=1"
+rfPortRef : <empty>
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=2"
+rfPortRef : <empty>
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3"
+administrativeState : LOCKED
+
+DELETE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3"
+fieldReplaceableUnitId : "RRU-3"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,AlarmPort=1"
+alarmPortId : "1"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,AlarmPort=2"
+alarmPortId : "2"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=A"
+administrativeState : UNLOCKED
+rfPortId : "A"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=B"
+administrativeState : UNLOCKED
+rfPortId : "B"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=C"
+administrativeState : UNLOCKED
+rfPortId : "C"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=D"
+administrativeState : UNLOCKED
+rfPortId : "D"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=R"
+administrativeState : UNLOCKED
+rfPortId : "R"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RiPort=DATA_1"
+riPortId : "DATA_1"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RiPort=DATA_2"
+riPortId : "DATA_2"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,RiLink=10"
+riLinkId : "10"
+riPortRef1 : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=1,RiPort=E"
+riPortRef2 : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RiPort=DATA_1"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=1"
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=A"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=2"
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=C"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=21"
+dlAttenuation : [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+dlTrafficDelay : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,]
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=B"
+ulAttenuation : [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+ulTrafficDelay : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,]
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,AntennaUnitGroup=3,RfBranch=22"
+dlAttenuation : [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+dlTrafficDelay : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,]
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=LAL04521,ManagedElement=LAL04521,Eqipment=1,FieldReplaceableUnit=RRU-3,RfPort=D"
+ulAttenuation : [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+ulTrafficDelay : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,]

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 30%;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .table input {
+        width: 100%;
+
+        box-sizing: border-box;
+      }
+
+      .table select {
+        width: 100%;
+
+        box-sizing: border-box;
+      }
+
+      .table th,
+      .table td {
+        text-align: center;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      .form-control {
+        padding: 0;
+      }
+      .table > :not(caption) > * > * {
+        padding: 2px;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+
+      .verified {
+        color: #006b04; /* green */
+      }
+      .not-verified {
+        color: #ff0000; /* red */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="text-align: center"><b>SFP Verification Tool</b></h2>
+      <h5 style="text-align: center">(Lets Verify Your SFP)</h5>
+      <table class="table table-bordered">
+        <thead>
+          <tr style="background: #222222; color: #ffa600; font-size: 12px">
+            <th style="width: 5%">Radio</th>
+            <th style="width: 5%">Bottom</th>
+            <th style="width: 5%">Top</th>
+            <th style="width: 8%; text-align: center">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <select id="radio">
+                <option value="4449">4449</option>
+                <option value="8843">8843</option>
+                <option value="RRU32">RRU32</option>
+                <option value="RRU11">RRU11</option>
+              </select>
+            </td>
+            <td>
+              <select id="bottom">
+                <option value="65/25">65/25</option>
+                <option value="65/3">65/3</option>
+                <option value="47/3">47/3</option>
+                <option value="47/25">47/25</option>
+              </select>
+            </td>
+            <td>
+              <select id="top">
+                <option value="65/25">65/25</option>
+                <option value="65/3">65/3</option>
+                <option value="47/3">47/3</option>
+                <option value="47/25">47/25</option>
+              </select>
+            </td>
+            <td>
+              <p style="width: 100px; padding: 0; margin: 0" id="result"></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" id="submitBtn">
+        Check <i class="fa fa-code"></i>
+      </button>
+    </div>
+    <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
+  </body>
+</html>
+<script>
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    const radio = document.getElementById("radio").value;
+    const bottom = document.getElementById("bottom").value;
+    const top = document.getElementById("top").value;
+
+    matchFun(radio, bottom, top);
+  });
+
+  function matchFun(r, b, t) {
+    let resultElement = document.getElementById("result");
+
+    switch (true) {
+      case (r === "4449" || r === "8843" || r === "RRU32") &&
+        (b === "65/25" || b === "65/3") &&
+        t === "65/25":
+        resultElement.innerText = "Verified";
+        resultElement.classList.add("verified");
+        resultElement.classList.remove("not-verified");
+        break;
+
+      case r === "RRU32" && (b === "47/25" || b === "47/3") && t === "47/25":
+        resultElement.innerText = "Verified";
+        resultElement.classList.add("verified");
+        resultElement.classList.remove("not-verified");
+        break;
+
+      case r === "RRU11" && (b === "47/25" || b === "47/3") && t === "47/25":
+        resultElement.innerText = "Verified";
+        resultElement.classList.add("verified");
+        resultElement.classList.remove("not-verified");
+        break;
+
+      default:
+        resultElement.innerText = "Not Verified";
+        resultElement.classList.add("not-verified");
+        resultElement.classList.remove("verified");
+    }
+  }
+</script>

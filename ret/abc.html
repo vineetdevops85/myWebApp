@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* Arrange children vertically */
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        max-width: 600px; /* Adjust as needed */
+      }
+
+      .node1 {
+        width: 370px;
+        margin: 10px;
+        padding: 36px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="text"],
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-bottom: 5px;
+      }
+
+      input[type="text"] {
+        padding: 5px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="node1">
+        <label for="node1Id">Node1 ID</label>
+        <input type="text" id="node1Id" /> <br />
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="pro1" value="1" />
+          <label class="form-check-label" for="pro1">Provider</label>
+          <input class="form-check-input" type="radio" id="rec1" value="2" />
+          <label class="form-check-label" for="rec1">Receiver</label>
+        </div>
+        <br />
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="a1" value="A" />
+          <label class="form-check-label" for="a">A</label>
+          <input class="form-check-input" type="checkbox" id="b1" value="B" />
+          <label class="form-check-label" for="b">B</label>
+          <input class="form-check-input" type="checkbox" id="c1" value="C" />
+          <label class="form-check-label" for="c">C</label>
+          <input class="form-check-input" type="checkbox" id="d1" value="D" />
+          <label class="form-check-label" for="d">D</label>
+          <input class="form-check-input" type="checkbox" id="e1" value="E" />
+          <label class="form-check-label" for="e">E</label>
+          <input class="form-check-input" type="checkbox" id="f1" value="F" />
+          <label class="form-check-label" for="f">F</label>
+        </div>
+        <br />
+        <div style="padding-top: 20px">
+          <label for="node2Id">Node2 Custom Label</label>
+          <!-- Modified label here -->
+          <input type="text" id="node2Id" />
+          <br />
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="pro2" value="1" />
+            <label class="form-check-label" for="pro2">Provider</label>
+            <input class="form-check-input" type="radio" id="rec2" value="2" />
+            <label class="form-check-label" for="rec2">Receiver</label>
+          </div>
+          <br />
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="a" value="A" />
+            <label class="form-check-label" for="a">A</label>
+            <input class="form-check-input" type="checkbox" id="b" value="B" />
+            <label class="form-check-label" for="b">B</label>
+            <input class="form-check-input" type="checkbox" id="c" value="C" />
+            <label class="form-check-label" for="c">C</label>
+            <input class="form-check-input" type="checkbox" id="d" value="D" />
+            <label class="form-check-label" for="d">D</label>
+            <input class="form-check-input" type="checkbox" id="e" value="E" />
+            <label class="form-check-label" for="e">E</label>
+            <input class="form-check-input" type="checkbox" id="f" value="F" />
+            <label class="form-check-label" for="f">F</label>
+          </div>
+        </div>
+        <div style="padding-top: 20px">
+          <button class="btn btn-primary" id="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+    document.getElementById("submit").addEventListener("click", () => {
+        // Retrieve values from the form for node1
+        let node1 = document.getElementById("node1Id").value;
+        let pro1 = document.getElementById("pro1").checked ? 1 : 2;
+        let rec1 = document.getElementById("rec1").checked ? 2 : 1;
+
+        let a1 = document.getElementById("a1").checked;
+        let b1 = document.getElementById("b1").checked;
+        let c1 = document.getElementById("c1").checked;
+        let d1 = document.getElementById("d1").checked;
+        let e1 = document.getElementById("e1").checked;
+        let f1 = document.getElementById("f1").checked;
+
+        // Generate strings for node1
+        let node1String = `SubNetwork=AntennaGroup-1,ONRM_ROOT_MO,SubNetwork=${node1},MeContext=${node1},ManagedElement=1=\nsync=${pro1}\n`;
+
+        if (a1) node1String += "port-A,";
+        if (b1) node1String += "port-B,";
+        if (c1) node1String += "port-C,";
+        if (d1) node1String += "port-D,";
+        if (e1) node1String += "port-E,";
+        if (f1) node1String += "port-F,";
+
+        // Remove the trailing comma
+        node1String = node1String.replace(/,$/, "");
+
+        // Retrieve values from the form for node2
+        let node2 = document.getElementById("node2Id").value;
+        let pro2 = document.getElementById("pro2").checked ? 1 : 2;
+        let rec2 = document.getElementById("rec2").checked ? 2 : 1;
+
+        let a2 = document.getElementById("a").checked;
+        let b2 = document.getElementById("b").checked;
+        let c2 = document.getElementById("c").checked;
+        let d2 = document.getElementById("d").checked;
+        let e2 = document.getElementById("e").checked;
+        let f2 = document.getElementById("f").checked;
+
+        // Generate strings for node2
+        let node2String = `site ID=${node2}\nsync=${pro2}\n`;
+
+        if (a2) node2String += "port-A,";
+        if (b2) node2String += "port-B,";
+        if (c2) node2String += "port-C,";
+        if (d2) node2String += "port-D,";
+        if (e2) node2String += "port-E,";
+        if (f2) node2String += "port-F,";
+
+        // Remove the trailing comma
+        node2String = node2String.replace(/,$/, "");
+
+        // Create text files and initiate downloads
+        createTextFile(`${node1}.txt`, node1String);
+        createTextFile(`${node2}.txt`, node2String);
+    });
+
+    function createTextFile(filename, content) {
+        var blob = new Blob([content], { type: "text/plain" });
+        var link = document.createElement("a");
+        link.download = filename;
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
+    }
+</script>

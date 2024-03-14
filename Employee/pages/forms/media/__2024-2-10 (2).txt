@@ -1,0 +1,141 @@
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,NodeSupport=1,SectorEquipmentFunction="
+administrativeState : LOCKED
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,NodeSupport=1,SectorEquipmentFunction="
+rfBranchRef : []
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,ENodeBFunction=1,SectorCarrier="
+rfBranchRxRef : []
+rfBranchTxRef : []
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,NodeSupport=1,CpriLinkIqData=1"
+riLinkRef : []
+
+DELETE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,RiLink="
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+rfPortRef : <empty>
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+rfPortRef : <empty>
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit="
+administrativeState : LOCKED
+
+DELETE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit="
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit="
+fieldReplaceableUnitId : ""
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,AlarmPort=1"
+alarmPortId : "1"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,AlarmPort=2"
+alarmPortId : "2"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=A"
+administrativeState : UNLOCKED
+rfPortId : "A"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=B"
+administrativeState : UNLOCKED
+rfPortId : "B"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=C"
+administrativeState : UNLOCKED
+rfPortId : "C"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=D"
+administrativeState : UNLOCKED
+rfPortId : "D"
+vswrSupervisionActive : true
+vswrSupervisionSensitivity : 70
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=R"
+administrativeState : UNLOCKED
+rfPortId : "R"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RiPort=DATA_1"
+riPortId : "DATA_1"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RiPort=DATA_2"
+riPortId : "DATA_2"
+
+CREATE
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,RiLink="
+riLinkId : ""
+riPortRef1 : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=1,="
+riPortRef2 : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RiPort="
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=A"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=C"
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+dlAttenuation : [, , , , , , , , , , , , , , ]
+dlTrafficDelay : [, , , , , , , , , , , , , , ]
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=B"
+ulAttenuation : [, , , , , , , , , , , , , , ]
+ulTrafficDelay : [, , , , , , , , , , , , , , ]
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="
+dlAttenuation : [, , , , , , , , , , , , , , ]
+dlTrafficDelay : [, , , , , , , , , , , , , , ]
+rfPortRef : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit=,RfPort=D"
+ulAttenuation : [, , , , , , , , , , , , , , ]
+ulTrafficDelay : [, , , , , , , , , , , , , , ]
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,ENodeBFunction=1,SectorCarrier="
+configuredMaxTxPower : 160000
+noOfRxAntennas : 4
+noOfTxAntennas : 4
+rfBranchRxRef : ["SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="]
+rfBranchTxRef : ["SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="]
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,NodeSupport=1,SectorEquipmentFunction="
+rfBranchRef : ["SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch=", "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,AntennaUnitGroup=,RfBranch="]
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,Eqipment=1,FieldReplaceableUnit="
+administrativeState : UNLOCKED
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,NodeSupport=1,SectorEquipmentFunction="
+administrativeState : UNLOCKED
+
+SET
+FDN : "SubNetwork=ONRM_ROOT_MO_MeContext=,ManagedElement=,ENodeBFunction=1,EUtranCellFDD="
+administrativeState : UNLOCKED
